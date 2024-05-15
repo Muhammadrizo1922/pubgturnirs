@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid text-light py-3">
+
+
+    <div class="d-flex flex-row justify-content-between">
+    <h3 class="text-center mt-1">{{tournament.tournament_name}}</h3>
+    <h3 class="text-center mt-1">Prize : {{tournament.Prize}}</h3>
+</div>
+<hr>    
+{% if tournament.started == False %}
+
+<div class="d-flex flex-column">
+    <h5 class="">Tournament name : {{tournament.tournament_name}}</h5>
+    <h5 class="">Type of weapon : {{tournament.weapon}}</h5>
+    <h5 class="">Type of squad : {{tournament.squad}}</h5>
+    <h5 class="">Type of weapon : {{tournament.start_date}}</h5>
+    <h5 class="">{{tournament.tournament_rules|linebreaks}}</h5>
+    <h5 class="">Registered participants : {{tournament.participants|linebreaks}}</h5>
+</div>
+
+{% if tournament.isfull == True %}
+<div class="d-flex justify-content-center">
+<a href="" class="btn btn-success py-2 px-5 disabled" style="font-weight: 500;">Apply to participate <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
+  </svg></a>
+</div>
+<p class="text-center mt-2">Unfortunately, All players have been selected</p>
+{% else %}
+<div class="d-flex justify-content-center">
+    <a href="{% url 'myapply' %}" class="btn btn-success py-2 px-5" style="font-weight: 500;">Apply to participate</a>
+</div>
+{% endif %}
+
+{% else %}
+{% for r in rounds %}
+<ul class="list-group">
+    <li class="list-group-item my-1 d-flex justify-content-between align-items-center"> <span>{{r.round_number}}</span> <a class="text-decoration-none" href="{% url 'matches' r.pk %}">View -></a></li>
+</ul>    
+{% endfor %}
+{% endif %}
+</div>
+{% endblock content %}
