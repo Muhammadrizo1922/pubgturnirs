@@ -1,23 +1,24 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
 
 <div class="container-fluid text-light py-3">
-<h2>All information about the player</h2>
+<h2>{% trans 'All information about the player' %}</h2>
 <hr>    
 <div class="">
-<h3>Player name :  {{player.FullName}}</h3>
-<h3>Pubg name : {{player.PubgName}}</h3>
-<h3>Pubg ID : {{player.PubgID}}</h3>
-<h3>Joined : {{player.joined}}</h3>
+<h3>{% trans 'Player name' %} :  {{player.FullName}}</h3>
+<h3>{% trans 'Pubg name' %} : {{player.PubgName}}</h3>
+<h3>{% trans 'Pubg ID' %} : {{player.PubgID}}</h3>
+<h3>{% trans 'Joined' %} : {{player.joined}}</h3>
 </div>
 <hr>
 <table class="table table-dark table-borderless">
     <thead>
         <tr>
-            <th>Points</th>
-            <th>Wins </th>
-            <th>Trophy</th>
+            <th>{% trans 'Points' %}</th>
+            <th>{% trans 'Wins' %}</th>
+            <th>{% trans 'Trophy' %}</th>
         </tr>
     </thead>
     <tbody>
@@ -32,7 +33,7 @@
 <table class="table table-dark table-borderless">
     <thead>
         <tr>
-            <th>Played</th>
+            <th>{% trans 'Played' %}</th>
         </tr>
     </thead>
     <tbody>
@@ -43,6 +44,6 @@
     </tbody>
 </table>
 {% if user.is_staff %}
-<a href="{% url 'addpoint' player.pk %}" class="btn btn-success py-2 px-5">Edit Player Stats</a>
+<a href="{% url 'addpoint' player.pk %}" class="btn btn-success py-2 px-5">{% trans 'Edit Player Stats' %}</a>
 {% endif %}
 {% endblock content %}

@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-17 12:34+0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2024-05-17 12:49+0500\n"
+"Last-Translator:   <muhammadrizosaidumarbekov19@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
 
 #: .\env\Lib\site-packages\django\contrib\messages\apps.py:16
 msgid "Messages"
@@ -77,8 +78,8 @@ msgstr ""
 
 #: .\env\Lib\site-packages\django\core\validators.py:267
 msgid ""
-"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
-"hyphens."
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or"
+" hyphens."
 msgstr ""
 
 #: .\env\Lib\site-packages\django\core\validators.py:279
@@ -284,15 +285,15 @@ msgstr ""
 #: .\env\Lib\site-packages\django\db\models\fields\__init__.py:1550
 #, python-format
 msgid ""
-"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
-"uuuuuu]][TZ] format."
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ] format."
 msgstr ""
 
 #: .\env\Lib\site-packages\django\db\models\fields\__init__.py:1558
 #, python-format
 msgid ""
-"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
-"[TZ]) but it is an invalid date/time."
+"“%(value)s” value has the correct format (YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ]) but it is an invalid date/time."
 msgstr ""
 
 #: .\env\Lib\site-packages\django\db\models\fields\__init__.py:1563
@@ -311,8 +312,8 @@ msgstr ""
 #: .\env\Lib\site-packages\django\db\models\fields\__init__.py:1853
 #, python-format
 msgid ""
-"“%(value)s” value has an invalid format. It must be in [DD] [[HH:]MM:]ss[."
-"uuuuuu] format."
+"“%(value)s” value has an invalid format. It must be in [DD] "
+"[[HH:]MM:]ss[.uuuuuu] format."
 msgstr ""
 
 #: .\env\Lib\site-packages\django\db\models\fields\__init__.py:1857
@@ -471,7 +472,8 @@ msgid "Many-to-many relationship"
 msgstr ""
 
 #. Translators: If found as last label character, these punctuation
-#. characters will prevent the default label_suffix to be appended to the label
+#. characters will prevent the default label_suffix to be appended to the
+#. label
 #: .\env\Lib\site-packages\django\forms\boundfield.py:185
 msgid ":?.!"
 msgstr ""
@@ -521,7 +523,8 @@ msgstr ""
 
 #: .\env\Lib\site-packages\django\forms\fields.py:633
 #, python-format
-msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid ""
+"Ensure this filename has at most %(max)d character (it has %(length)d)."
 msgid_plural ""
 "Ensure this filename has at most %(max)d characters (it has %(length)d)."
 msgstr[0] ""
@@ -628,7 +631,8 @@ msgid "The inline value did not match the parent instance."
 msgstr ""
 
 #: .\env\Lib\site-packages\django\forms\models.py:1448
-msgid "Select a valid choice. That choice is not one of the available choices."
+msgid ""
+"Select a valid choice. That choice is not one of the available choices."
 msgstr ""
 
 #: .\env\Lib\site-packages\django\forms\models.py:1587
@@ -1088,11 +1092,11 @@ msgstr ""
 
 #: .\env\Lib\site-packages\django\views\csrf.py:45
 msgid ""
-"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
-"including the “Referrer-Policy: no-referrer” header, please remove them. The "
-"CSRF protection requires the “Referer” header to do strict referer checking. "
-"If you’re concerned about privacy, use alternatives like <a rel=\"noreferrer"
-"\" …> for links to third-party sites."
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or"
+" including the “Referrer-Policy: no-referrer” header, please remove them. "
+"The CSRF protection requires the “Referer” header to do strict referer "
+"checking. If you’re concerned about privacy, use alternatives like <a "
+"rel=\"noreferrer\" …> for links to third-party sites."
 msgstr ""
 
 #: .\env\Lib\site-packages\django\views\csrf.py:54
@@ -1143,8 +1147,8 @@ msgstr ""
 #: .\env\Lib\site-packages\django\views\generic\dates.py:652
 #, python-format
 msgid ""
-"Future %(verbose_name_plural)s not available because %(class_name)s."
-"allow_future is False."
+"Future %(verbose_name_plural)s not available because "
+"%(class_name)s.allow_future is False."
 msgstr ""
 
 #: .\env\Lib\site-packages\django\views\generic\dates.py:692
@@ -1202,10 +1206,10 @@ msgstr ""
 #: .\env\Lib\site-packages\django\views\templates\default_urlconf.html:221
 #, python-format
 msgid ""
-"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
-"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
-"\">DEBUG=True</a> is in your settings file and you have not configured any "
-"URLs."
+"You are seeing this page because <a "
+"href=\"https://docs.djangoproject.com/en/%(version)s/ref/settings/#debug\" "
+"target=\"_blank\" rel=\"noopener\">DEBUG=True</a> is in your settings file "
+"and you have not configured any URLs."
 msgstr ""
 
 #: .\env\Lib\site-packages\django\views\templates\default_urlconf.html:229
@@ -1238,139 +1242,139 @@ msgstr ""
 
 #: .\templates\index.html:6
 msgid "Currently ongoing tournaments"
-msgstr ""
+msgstr "Текущие турниры"
 
 #: .\templates\index.html:23
 msgid "you can watch matches on"
-msgstr ""
+msgstr "вы можете смотреть матчи на"
 
 #: .\templates\navbar.html:11
 msgid "Home"
-msgstr ""
+msgstr "основной"
 
 #: .\templates\navbar.html:14 .\templates\tournament\leadersboard.html:7
 msgid "Leadersboard"
-msgstr ""
+msgstr "Таблица лидеров"
 
 #: .\templates\navbar.html:21
 msgid "Our TV"
-msgstr ""
+msgstr "Наше ТВ"
 
 #: .\templates\navbar.html:63
 msgid "Search"
-msgstr ""
+msgstr "Поиск"
 
 #: .\templates\search.html:16
 msgid "Tournaments"
-msgstr ""
+msgstr "Турниры"
 
 #: .\templates\search.html:21
 msgid "Finished"
-msgstr ""
+msgstr "Законченный"
 
 #: .\templates\search.html:24 .\templates\search.html:35
 #: .\templates\tournament\abouttour.html:72
 msgid "View"
-msgstr ""
+msgstr "Вид"
 
 #: .\templates\search.html:30
 msgid "Players"
-msgstr ""
+msgstr "Игроки"
 
 #: .\templates\tournament\abouttour.html:21
 msgid "Tournament Rules"
-msgstr ""
+msgstr "Правила турнира"
 
 #: .\templates\tournament\abouttour.html:26
 #: .\templates\tournament\abouttour.html:47
 msgid "Tournament name"
-msgstr ""
+msgstr "Название турнира"
 
 #: .\templates\tournament\abouttour.html:27
 #: .\templates\tournament\abouttour.html:48
 msgid "Type of weapon"
-msgstr ""
+msgstr "Тип оружия"
 
 #: .\templates\tournament\abouttour.html:28
 #: .\templates\tournament\abouttour.html:49
 msgid "Type of squad"
-msgstr ""
+msgstr "Тип отряда"
 
 #: .\templates\tournament\abouttour.html:29
 #: .\templates\tournament\abouttour.html:50
 msgid "Start date"
-msgstr ""
+msgstr "Дата начала"
 
 #: .\templates\tournament\abouttour.html:30
 #: .\templates\tournament\abouttour.html:51
 msgid "End date"
-msgstr ""
+msgstr "Дата окончания"
 
 #: .\templates\tournament\abouttour.html:32
 #: .\templates\tournament\abouttour.html:53
 msgid "Registered participants"
-msgstr ""
+msgstr "Зарегистрированные участники"
 
 #: .\templates\tournament\apply.html:7
 msgid "Apply to join the Tournament"
-msgstr ""
+msgstr "Подайте заявку на участие в турнире"
 
 #: .\templates\tournament\apply.html:13
 msgid "Submit"
-msgstr ""
+msgstr "Подтверждать"
 
 #: .\templates\tournament\leadersboard.html:13
 msgid "Pubg Name"
-msgstr ""
+msgstr "Имя в pubg"
 
 #: .\templates\tournament\leadersboard.html:14
 #: .\templates\tournament\player.html:19
 msgid "Points"
-msgstr ""
+msgstr "Очков"
 
 #: .\templates\tournament\matches.html:15
 msgid "Not started"
-msgstr ""
+msgstr "Не начался"
 
 #: .\templates\tournament\matches.html:24
 msgid "Match video"
-msgstr ""
+msgstr "Видео матча"
 
 #: .\templates\tournament\matches.html:29
 msgid "Winner of the Tournament"
-msgstr ""
+msgstr "Победитель турнира"
 
 #: .\templates\tournament\player.html:7
 msgid "All information about the player"
-msgstr ""
+msgstr "Вся информация об игроке"
 
 #: .\templates\tournament\player.html:10
 msgid "Player name"
-msgstr ""
+msgstr "Имя игрока"
 
 #: .\templates\tournament\player.html:11
 msgid "Pubg name"
-msgstr ""
+msgstr "Имя в pubg"
 
 #: .\templates\tournament\player.html:12
 msgid "Pubg ID"
-msgstr ""
+msgstr "Pubg ID"
 
 #: .\templates\tournament\player.html:13
 msgid "Joined"
-msgstr ""
+msgstr "Присоединился"
 
 #: .\templates\tournament\player.html:20
 msgid "Wins"
-msgstr ""
+msgstr "Победы"
 
 #: .\templates\tournament\player.html:21
 msgid "Trophy"
-msgstr ""
+msgstr "Трофей"
 
 #: .\templates\tournament\player.html:36
 msgid "Played"
-msgstr ""
+msgstr "Играл"
 
 #: .\templates\tournament\player.html:47
 msgid "Edit Player Stats"
@@ -1378,20 +1382,21 @@ msgstr ""
 
 #: .\templates\warning.html:7
 msgid "Warning"
-msgstr ""
+msgstr "Предупреждение"
 
 #: .\templates\warning.html:9
-msgid "What the Fuck, What are you doing ? You don't have access to enter here"
-msgstr ""
+msgid ""
+"What the Fuck, What are you doing ? You don't have access to enter here"
+msgstr "Какого черта, что ты делаешь? У вас нет доступа для входа сюда"
 
 #: .\tournament\settings.py:116
 msgid "Uzbek"
-msgstr ""
+msgstr "узбекский"
 
 #: .\tournament\settings.py:117
 msgid "English"
-msgstr ""
+msgstr "английский"
 
 #: .\tournament\settings.py:118
 msgid "Russian"
-msgstr ""
+msgstr "русский"

@@ -30,7 +30,8 @@ INSTALLED_APPS = [
     'main',
     'django_filters',
     'user',
-   # 'modeltranslation',
+    'modeltranslation',
+    'rosetta'
 ]
 
 MIDDLEWARE = [
@@ -111,9 +112,10 @@ USE_TZ = True
 
 from django.utils.translation import gettext_lazy as _
 
-LANGUAGEs = (
+LANGUAGES = (
     ('uz', _('Uzbek')),
     ('en', _('English')),
+    ('ru', _('Russian')),
 )
 
 

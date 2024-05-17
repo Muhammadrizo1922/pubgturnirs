@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 <div class="container-fluid text-light py-3">
-<h2 class="text-center">Warning !!!</h2>
+<h2 class="text-center">{% trans 'Warning' %} !!!</h2>
 <hr>
-<h2 class="text-center my-3 text-warning">What the Fuck, What are you doing ? You don't have access to enter here </h2>
+<h2 class="text-center my-3 text-warning">{% trans "What the Fuck, What are you doing ? You don't have access to enter here" %}</h2>
 <center>
 <br>
 <img src="{% static 'image/finger.png' %}" width="200" alt="">

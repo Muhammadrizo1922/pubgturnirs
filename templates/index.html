@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
 <div class="container-fluid text-light py-3">
-<h2 class="text-center">Currently ongoing tournaments</h2>
+<h2 class="text-center">{% trans 'Currently ongoing tournaments' %}</h2>
 <hr>
 <div class="d-flex flex-column">
 {% for tour in tours %}
@@ -19,7 +20,7 @@
  ------->
     </div>
     <div class="card-footer text-light">
-      you can watch matches on <a class="text-warning" href="https://www.youtube.com/channel/UCZnDGogAb_1cLqwzjSQZfBg"> youtube</a>
+     {% trans 'you can watch matches on' %}  <a class="text-warning" href="https://www.youtube.com/channel/UCZnDGogAb_1cLqwzjSQZfBg"> youtube</a>
     </div>
   </div>
 

@@ -32,7 +32,7 @@ class Tournament(models.Model):
    finished = models.BooleanField(blank=True,null=True)
    available = models.BooleanField()
    isfull = models.BooleanField(default=False)
-  # created = models.DateTimeField(auto_now_add=True)
+   created = models.DateTimeField(auto_now_add=True)
 
    
    def save(self, *args, **kwargs):
@@ -66,6 +66,7 @@ class Round(models.Model):
     current = models.BooleanField(blank=True,null=True)
     finished = models.BooleanField(default=False)
     date = models.DateField(auto_now_add=True, blank=True,null=True)
+    created=models.DateTimeField(auto_now_add=True)
     
     class Meta:
         ordering = ["-date"]
@@ -82,6 +83,7 @@ class Match(models.Model):
     overall_2 = models.IntegerField(default=0,blank=True, null=True)
     matchvideo = models.CharField(max_length=200, blank=True, null=True)
     tournament_winner = models.CharField(max_length=50,null=True,blank=True)
+    created=models.DateTimeField(auto_now_add=True)
 
 
 """"
@@ -117,6 +119,7 @@ class TvVideo(models.Model):
     videoname = models.CharField(max_length=50)
     videolink = models.CharField(max_length=200)
     remove = models.BooleanField(default=False)
+    created=models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.videoname
