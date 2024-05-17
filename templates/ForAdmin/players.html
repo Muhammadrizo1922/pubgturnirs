@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid text-light py-3">
+<h2 class="text-center">All <span class="text-warning"> {{allplayerscount}} </span> registered players here</h2>
+<hr>
+<ul class="list-group">
+{% for player in allplayers %}
+<li class="list-group-item my-1 d-flex justify-content-between align-items-center"> <span>{{player.FullName}} - ({{player.PubgName}}) 
+</span>
+     <a class="text-decoration-none" href="{% url 'player' player.pk %}">View -></a>
+    </li>
+{% endfor %}
+</ul>
+</div>
+{% endblock content %}

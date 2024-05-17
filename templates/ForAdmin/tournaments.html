@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid text-light py-3">
+<div class="d-flex justify-content-between align-items-center">
+<h2 class="text-center">All Tournaments</h2>
+<a href="{% url 'createtour' %}" class="btn btn-success">New +</a>
+</div>
+<hr>
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Tournament </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tournament in tournaments %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{tournament.tournament_name}}</td>
+            <td><a href="{% url 'touredit' tournament.pk %}">Edit</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+</div>
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid text-light py-3">
+<h2 class="text-center">Watch interesting videos</h2>
+<hr>
+{% for v in videos %}
+<iframe width="420" height="315"
+src="{{v.videolink}}">
+</iframe>
+{% endfor %}
+</div>
+{% endblock content %}

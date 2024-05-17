@@ -10,8 +10,11 @@
 <div class="d-flex justify-content-between w-100">
 <p style="width: 33%;" class="text-start ">{{m.player_1}}</p>
 
+{% if m.overall_1 == None and m.overall_2 == None %}
+<p class="text-warning">Not started</p>
+{% else %}
 <p style="width:33%;" class="text-center">{{m.overall_1}} : {{m.overall_2}}</p>
-
+{% endif %}
 <p style="width:33%;" class="text-end mx-2 ">{{m.player_2}}</p>
 </div>
 

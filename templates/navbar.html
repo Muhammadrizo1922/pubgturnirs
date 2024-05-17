@@ -1,3 +1,4 @@
+{% load i18n %}
 <nav class="navbar navbar-expand-lg bg-warning">
     <div class="container-fluid">
       <a class="navbar-brand" href="{% url 'index' %}">Pubg Tour</a>
@@ -7,26 +8,54 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">{% trans 'Home' %}</a>
           </li>
           <li class="nav-item d-flex align-items-center">
-            <a class="nav-link disabled" href="#">Leadersboard <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+            <a class="nav-link disabled" href="{% url 'leadersboard' %}">Leadersboard 
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
               <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
-            </svg></a>
+            </svg>
+        </a>
           </li>
-          {% if user.is_superuser %}
+          <li class="nav-item d-flex align-items-center">
+            <a class="nav-link disabled" href="{% url 'videos' %}">Our TV  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+              <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
+            </svg> 
+        </a>
+        </li>
+          {% if user.is_staff or user.is_superuser %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Admin
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="{% url 'requests' %}">Requests <span class="badge rounded-pill text-bg-danger">{{notchecked}}</span></a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="{% url 'allplayers' %}">Players</a></li>
+              <li><a class="dropdown-item" href="{% url 'tournaments' %}">Tournaments</a></li>
+              <li><a class="dropdown-item" href="{% url 'rounds' %}">Rounds</a></li>
+              <li><a class="dropdown-item" href="{% url 'matches' %}">Matches</a></li>
             </ul>
           </li>
           {% endif %}
+
+          {% get_current_language as LANGUAGE_CODE %}
+          {% get_available_languages as LANGUAGES %}
+          {% get_language_info_list for LANGUAGES as languages %}          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{LANGUAGE_CODE}}
+            </a>
+            <ul class="dropdown-menu">
+              {% for language in languages %}
+              <li class="dropdown-item">
+              <a href="/{{ language.code }}/" {% if language.code == LANGUAGE_CODE %} class="selected"{% endif %}>
+              {{ language.name_local }}
+              </a>
+              </li>
+              {% endfor %}
+              </ul>
+    
+          </li>
         </ul>
         <form class="d-flex" role="search" action="{% url 'search' %}" method="post">
           {% csrf_token %}

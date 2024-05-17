@@ -1,11 +1,15 @@
 from django.db import models
 import uuid
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
+
 
 class Tournament(models.Model):
    
    WEAPON = {
        'M416':'M416',
-       'M24':'M24'
+       'M24':'M24',
+       'All': 'All'
    }
 
    SQUAD = {
@@ -28,6 +32,7 @@ class Tournament(models.Model):
    finished = models.BooleanField(blank=True,null=True)
    available = models.BooleanField()
    isfull = models.BooleanField(default=False)
+  # created = models.DateTimeField(auto_now_add=True)
 
    
    def save(self, *args, **kwargs):
@@ -40,12 +45,13 @@ class Tournament(models.Model):
    def __str__(self):
        return self.tournament_name
    
+
 class MyApply(models.Model):
     id = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
     FullName = models.CharField(max_length=80)
     PubgName = models.CharField(max_length=50)
     PubgID = models.CharField(max_length=20)
-    tournament_name = models.ForeignKey(Tournament, on_delete=models.CASCADE)
+    tournament_name = models.ForeignKey(Tournament,limit_choices_to={'finished': False}, on_delete=models.CASCADE)
     tgusername = models.CharField(max_length=50, null=True,blank=True)
     applydate = models.DateTimeField(auto_now_add=True)
     status = models.BooleanField(null=True,blank=True)
@@ -56,8 +62,9 @@ class MyApply(models.Model):
 class Round(models.Model):
     id = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
     round_number = models.CharField(max_length=35)
-    tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE)
+    tournament = models.ForeignKey(Tournament,limit_choices_to={'finished': False}, on_delete=models.CASCADE)
     current = models.BooleanField(blank=True,null=True)
+    finished = models.BooleanField(default=False)
     date = models.DateField(auto_now_add=True, blank=True,null=True)
     
     class Meta:
@@ -70,7 +77,7 @@ class Match(models.Model):
     id = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
     player_1 = models.CharField(max_length=50)
     player_2 = models.CharField(max_length=50)
-    forround = models.ForeignKey(Round, on_delete=models.CASCADE)
+    forround = models.ForeignKey(Round,limit_choices_to={'finished': False}, on_delete=models.CASCADE)
     overall_1 = models.IntegerField(default=0,blank=True, null=True)
     overall_2 = models.IntegerField(default=0,blank=True, null=True)
     matchvideo = models.CharField(max_length=200, blank=True, null=True)
@@ -104,3 +111,12 @@ class Player(models.Model):
 
     def __str__(self):
         return self.FullName
+
+class TvVideo(models.Model):
+    id = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
+    videoname = models.CharField(max_length=50)
+    videolink = models.CharField(max_length=200)
+    remove = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.videoname
