@@ -16,9 +16,9 @@ SECRET_KEY = 'django-insecure-237jc4@=m0s9l2=jun5rkwxuccql-7503)6(g+kqlz53^px8h@
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['www.pubgturnirlar.uz']
 
 
 # Application definition
@@ -131,7 +131,7 @@ LOCALE_PATHS = [
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),] 
-STATIC_ROOT = '/home/urdamenu/public_html/static' 
+#STATIC_ROOT = '/home/urdamenu/public_html/static' 
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
